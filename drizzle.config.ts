@@ -1,18 +1,17 @@
 import "dotenv/config";
 import { defineConfig } from "drizzle-kit";
 
-if (!process.env.DATABASE_HOST) {
-  console.error(process.env.DATABASE_HOST);
-  throw new Error("No connection details");
+if (!process.env.DATABASE_URL) {
+  console.error(process.env.DATABASE_URL);
+  throw new Error("Environment variable DATABASE_URL is missing");
 }
 
-console.error(process.env.DATABASE_HOST);
 export default defineConfig({
   schema: "./src/db/schemas/*",
   out: "./drizzle",
-  driver: "pg",
+  dialect: "postgresql",
   strict: true,
   dbCredentials: {
-    connectionString: process.env.DATABASE_URL!,
+    url: process.env.DATABASE_URL!,
   },
 });
