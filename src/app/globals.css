@@ -1,0 +1,273 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+html,
+body {
+  max-width: 100vw;
+  color: #211700;
+  scroll-behavior: smooth;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  font-style: italic;
+  background-repeat: no-repeat;
+  background-size: cover;
+  shape-margin: 0.75rem;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(214 159 30);
+  transition: color 150ms ease-in-out;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+main {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.lds-roller {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  top: calc(50% - 40px);
+  left: calc(50% - 40px);
+  z-index: 0;
+}
+.lds-roller div {
+  animation: 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite lds-roller;
+  transform-origin: 40px 40px;
+}
+.lds-roller div:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgb(255 207 93);
+  margin: -4px 0 0 -4px;
+}
+.lds-roller div:first-child {
+  animation-delay: -36ms;
+}
+.lds-roller div:first-child:after {
+  top: 63px;
+  left: 63px;
+}
+.lds-roller div:nth-child(2) {
+  animation-delay: -72ms;
+}
+.lds-roller div:nth-child(2):after {
+  top: 68px;
+  left: 56px;
+}
+.lds-roller div:nth-child(3) {
+  animation-delay: -108ms;
+}
+.lds-roller div:nth-child(3):after {
+  top: 71px;
+  left: 48px;
+}
+.lds-roller div:nth-child(4) {
+  animation-delay: -144ms;
+}
+.lds-roller div:nth-child(4):after {
+  top: 72px;
+  left: 40px;
+}
+.lds-roller div:nth-child(5) {
+  animation-delay: -0.18s;
+}
+.lds-roller div:nth-child(5):after {
+  top: 71px;
+  left: 32px;
+}
+.lds-roller div:nth-child(6) {
+  animation-delay: -216ms;
+}
+.lds-roller div:nth-child(6):after {
+  top: 68px;
+  left: 24px;
+}
+.lds-roller div:nth-child(7) {
+  animation-delay: -252ms;
+}
+.lds-roller div:nth-child(7):after {
+  top: 63px;
+  left: 17px;
+}
+.lds-roller div:nth-child(8) {
+  animation-delay: -288ms;
+}
+.lds-roller div:nth-child(8):after {
+  top: 56px;
+  left: 12px;
+}
+@keyframes lds-roller {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.main-layout {
+  min-height: 100vh;
+}
+
+@keyframes react-loading-skeleton {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.react-loading-skeleton {
+  --base-color: #ebebeb;
+  --highlight-color: #f5f5f5;
+  --animation-duration: 1.5s;
+  --animation-direction: normal;
+  --pseudo-element-display: block; /* Enable animation */
+
+  background-color: var(--base-color);
+  display: block;
+  line-height: 1;
+
+  position: relative;
+  user-select: none;
+  overflow: hidden;
+}
+
+.react-loading-skeleton::after {
+  content: " ";
+  display: var(--pseudo-element-display);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(
+    90deg,
+    var(--base-color),
+    var(--highlight-color),
+    var(--base-color)
+  );
+  transform: translateX(-100%);
+
+  animation-name: react-loading-skeleton;
+  animation-direction: var(--animation-direction);
+  animation-duration: var(--animation-duration);
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@media (prefers-reduced-motion) {
+  .react-loading-skeleton {
+    --pseudo-element-display: none; /* Disable animation */
+  }
+}
+
+.slogan-animation2 {
+  --animation-delay: 3000ms;
+  --animation-duration: 3000ms;
+  --animation-time: 3000ms;
+
+  animation:
+    fadeInBottom 300ms 3000ms ease forwards,
+    fadeOutTop 300ms 4000ms ease forwards;
+}
+
+.slogan-animation {
+  --animation-delay: 300ms;
+  --animation-duration: 300ms;
+  --animation-time: 3000ms;
+
+  animation:
+    fadeInBottom var(--animation-duration) var(--animation-delay) ease forwards,
+    fadeOutTop var(--animation-duration)
+      calc(
+        var(--animation-duration) + var(--animation-delay) +
+          var(--animation-time)
+      )
+      ease forwards;
+}
+
+/* ANIMATIONS */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50%));
+  }
+}
+
+@keyframes fadeInBottom {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOutTop {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}

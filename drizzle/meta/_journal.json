@@ -1,0 +1,27 @@
+{
+  "version": "5",
+  "dialect": "pg",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1709938268009,
+      "tag": "0000_misty_wallow",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1714150433938,
+      "tag": "0001_aspiring_scarlet_spider",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1714152464999,
+      "tag": "0002_nebulous_rattler",
+      "breakpoints": true
+    }
+  ]
+}

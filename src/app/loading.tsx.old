@@ -1,0 +1,6 @@
+import Loader from "@/components/loader";
+
+// This creates hydration erros, leave it for now
+export default async function Loading() {
+  return <Loader />;
+}

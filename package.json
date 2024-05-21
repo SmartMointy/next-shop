@@ -1,0 +1,51 @@
+{
+  "name": "next-shop",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "dev:sst": "sst bind next dev",
+    "dev:turbo": "next dev --turbo",
+    "dev-sec": "next dev --experimental-https",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^0.9.0",
+    "@planetscale/database": "^1.16.0",
+    "@radix-ui/colors": "^3.0.0",
+    "@radix-ui/react-dialog": "^1.0.5",
+    "@radix-ui/react-dropdown-menu": "^2.0.6",
+    "@radix-ui/react-select": "^2.0.0",
+    "@radix-ui/react-slider": "^1.1.2",
+    "amazon-cognito-identity-js": "^6.3.7",
+    "drizzle-orm": "^0.30.0",
+    "next": "^14.1.0",
+    "next-auth": "5.0.0-beta.5",
+    "next-intl": "^3.7.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "zustand": "^4.5.2"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "@next/bundle-analyzer": "^14.1.0",
+    "@svgr/webpack": "^8.1.0",
+    "@types/node": "^20.11.17",
+    "@types/react": "^18.2.55",
+    "@types/react-dom": "^18.2.19",
+    "autoprefixer": "^10.4.17",
+    "aws-cdk-lib": "2.124.0",
+    "constructs": "10.3.0",
+    "dotenv": "^16.4.5",
+    "drizzle-kit": "^0.20.14",
+    "eslint": "^8.56.0",
+    "eslint-config-next": "14.0.4",
+    "postcss": "^8.4.35",
+    "prettier": "^3.2.5",
+    "prettier-plugin-tailwindcss": "^0.5.11",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.3.3"
+  }
+}
