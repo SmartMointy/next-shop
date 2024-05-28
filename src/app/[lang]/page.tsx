@@ -140,7 +140,7 @@ export default async function Home() {
           {categories.map((category) => (
             <Link
               href={"/categories/" + category.name}
-              className="group ring-gold-400 focus:ring-2"
+              className="group flex-1 ring-gold-400 focus:ring-2"
             >
               <div
                 key={category.id}
