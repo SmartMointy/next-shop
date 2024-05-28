@@ -14,6 +14,7 @@ import ShippingSVG from "@/assets/icons/iconify/shipping.svg";
 import SmileySVG from "@/assets/icons/iconify/smiley.svg";
 import WorldSVG from "@/assets/icons/iconify/world.svg";
 import Slogan from "./Slogan";
+import { Link } from "@/navigation";
 
 const brands = [
   {
@@ -137,23 +138,28 @@ export default async function Home() {
 
         <div className="mt-20 flex flex-wrap gap-12">
           {categories.map((category) => (
-            <div
-              key={category.id}
-              className="relative h-[500px] w-full min-w-52 flex-1 cursor-pointer overflow-hidden rounded text-stone-700 shadow-gold-800 transition-all hover:scale-105 hover:text-gold-700 "
+            <Link
+              href={"/categories/" + category.name}
+              className="group ring-gold-400 focus:ring-2"
             >
-              <div className="absolute left-0 top-0 z-10 p-4">
-                <h3 className="text-3xl font-black">
-                  {t(`categories.${category.name}` as any)}
-                </h3>
+              <div
+                key={category.id}
+                className="relative h-[500px] w-full min-w-52 flex-1 cursor-pointer overflow-hidden rounded text-stone-700 shadow-gold-800 transition-all hover:scale-105 hover:text-gold-700 group-focus:scale-105 group-focus:text-gold-700"
+              >
+                <div className="absolute left-0 top-0 z-10 p-4">
+                  <h3 className="text-3xl font-black">
+                    {t(`categories.${category.name}` as any)}
+                  </h3>
+                </div>
+                <Image
+                  className="object-cover"
+                  src={"/images/categories/" + category.img}
+                  alt={`Category ${category.name} preview`}
+                  fill={true}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
               </div>
-              <Image
-                className="object-cover"
-                src={"/images/categories/" + category.img}
-                alt={`Category ${category.name} preview`}
-                fill={true}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              />
-            </div>
+            </Link>
           ))}
         </div>
 
