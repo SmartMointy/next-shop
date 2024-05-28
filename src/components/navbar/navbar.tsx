@@ -32,10 +32,11 @@ const IconButton = ({ children, href }: any) => {
 
 const LoginButton = ({}: any) => {
   return (
-    <Link href={`/login`}>
-      <button className="ml-2 h-10 rounded-md bg-os px-4 text-sm hover:bg-opacity-90">
-        <span className="text-stone-900">Anmelden</span>
-      </button>
+    <Link
+      href={`/login`}
+      className="ml-2 flex h-10 items-center rounded-md bg-os px-4 text-sm hover:bg-opacity-90"
+    >
+      <span className="text-stone-900">Anmelden</span>
     </Link>
   );
 };
