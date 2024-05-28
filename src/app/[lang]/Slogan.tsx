@@ -39,14 +39,14 @@ export default function Slogan({ slogans }: { slogans: string[] }) {
   return (
     <div className="flex items-center overflow-hidden">
       <div className="h-14">
-        <p className="text-gold-950 py-2 text-4xl font-bold">Schick&nbsp;</p>
+        <p className="py-2 text-4xl font-bold text-stone-700">Schick&nbsp;</p>
       </div>
       <div className="relative h-14 w-full">
         {visible
           ? slogans.map((slogan, i) => (
               <p
                 key={slogan}
-                className={`slogan-animation text-gold-600 absolute w-full translate-y-full py-2 text-4xl font-bold`}
+                className={`slogan-animation absolute w-full translate-y-full py-2 text-4xl font-bold text-gold-600`}
                 style={{
                   "--animation-delay":
                     i === 0
