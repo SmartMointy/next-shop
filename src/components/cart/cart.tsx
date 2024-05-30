@@ -4,8 +4,10 @@ import { useEffect, useState } from "react";
 import CartItem from "./cart-item";
 import { Link } from "@/navigation";
 
+
 export function CartOverlay({ children }: { children: React.ReactNode }) {
   const [show, setShow] = useState(false);
+  let scrollTop = 0;
 
   useEffect(() => {
     if (!show) return;
@@ -16,11 +18,21 @@ export function CartOverlay({ children }: { children: React.ReactNode }) {
       }
     };
 
-    document.body.style.overflow = "hidden";
+    scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    const body = document.querySelector('body')!;
+    body.style.position = 'fixed';
+    body.style.overflowY = 'scroll';
+    body.style.width = '100%';
+    body.style.top = `-${scrollTop}px`;
     window.addEventListener("keydown", onPressEscape);
 
     return () => {
-      document.body.style.overflow = "";
+      const body = document.querySelector('body')!;
+      body.style.position = '';
+      body.style.overflowY = '';
+      body.style.width = '';
+      body.style.top = '';
+      window.scrollTo({left: 0, top: scrollTop, behavior: "instant"});
       window.removeEventListener("keydown", onPressEscape);
     };
   }, [show]);
@@ -39,6 +51,7 @@ export function CartOverlay({ children }: { children: React.ReactNode }) {
 
       <div
         className={`absolute -right-16 z-50 w-[360px] rounded border border-stone-200 bg-white px-2 py-4 shadow-xl ${show ? "animate-slideInTop" : ""}`}
+        style={{ maxHeight: "calc(100vh - 20px)", overflowY: "auto" }}
       >
         <div className="flex justify-between">
           <p className="px-4 text-sm">Warenkorb</p>
@@ -57,7 +70,7 @@ export function CartOverlay({ children }: { children: React.ReactNode }) {
           <CartItem />
           <CartItem />
         </div>
-        <div className="mt-4 px-4">Gesammt: 300€</div>
+        <div className="mt-4 px-4">Gesamt: 300€</div>
       </div>
 
       {show ? (
